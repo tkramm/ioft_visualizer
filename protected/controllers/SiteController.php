@@ -28,22 +28,8 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
             $configFile = Yii::app()->getRequest()->getParam('configFile');
-            if(empty($configFile)) $configFile = "Level2";
+            if(empty($configFile)) $configFile = "level2";
             $myfile = Yii::app()->file->set('./protected/data/'.$configFile.'.json', true);
-            /*
-             * We use set() method to link new CFile object to our file. First set() parameter
-             * - 'files/test.txt' - is the file path (here we supply relative path wich
-             * is automatically converted into real file path such as '/var/www/htdocs/files/test.txt').
-             * Second set() parameter - true - tells CFile to get all file properties at the very
-             * beginning (it could be omitted if we don't need all of them).
-             */
-
-            // $myfile now contains CFile object, let's see what do we got there.
-
-//            var_dump($myfile);  // You may dump object to see all its properties,
-//            echo $myfile->contents;  // or get property,
-            //$myfile->permissions = 755;  // or set property,
-            //$mynewfile = $myfile->copy('test2.txt');  // or manipulate file somehow, e.g. copy.     
             $config = json_decode($myfile->contents);
 //            echo "<pre>";
 //            print_r($config->sources);
