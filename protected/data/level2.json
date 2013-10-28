@@ -1,0 +1,240 @@
+{
+    "name": "Level 2",
+    "channelId": 1,
+    "baseUrl": "http://www.ioft.d/api/",
+    "sources":
+        {
+        "Bad": {
+            "position":{
+                "left": 120,
+                "top": 40
+            },
+            "feeds":[
+            {
+                "feedID":1,
+                "color":"b94a48",
+                "type":"Temperatur",
+                "symbol":"°C"
+            },
+            {
+                "feedID":17,
+                "color":"c67605",
+                "type":"Helligkeit",
+                "symbol":""
+            },
+            {
+                "feedID":26,
+                "color":"468847",
+                "type":"Bewegung",
+                "symbol":""
+            }
+            ]
+        },
+        "Sicherungskasten": {
+            "position":{
+                "left": 360,
+                "top": 130
+            },
+            "feeds":[
+            {
+                "feedID":34,
+                "color":"333333",
+                "type":"Leistung",
+                "symbol":"W"
+            }
+            ]
+        },
+        "Arbeitszimmer": {
+            "position":{
+                "left": 440,
+                "top": 100
+            },
+            "feeds":[
+            {
+                "feedID":29,
+                "color":"b94a48",
+                "type":"Temperatur",
+                "symbol":"°C"
+            },
+            {
+                "feedID":28,
+                "color":"c67605",
+                "type":"Helligkeit",
+                "symbol":""
+            },
+            {
+                "feedID":27,
+                "color":"468847",
+                "type":"Bewegung",
+                "symbol":""
+            }
+            ]
+        },
+        "Flur": {
+            "position":{
+                "left": 590,
+                "top": 175
+            },
+            "feeds":[
+            {
+                "feedID":12,
+                "color":"b94a48",
+                "type":"Temperatur",
+                "symbol":"°C"
+            },
+            {
+                "feedID":8,
+                "color":"468847",
+                "type":"Bewegung",
+                "symbol":""
+            },
+            {
+                "feedID":13,
+                "color":"c67605",
+                "type":"Helligkeit",
+                "symbol":""
+            }
+            ]
+        },
+        "Flur 2": {
+            "position":{
+                "left": 140,
+                "top": 115
+            },
+            "feeds":[
+            {
+                "feedID":12,
+                "color":"b94a48",
+                "type":"Temperatur",
+                "symbol":"°C"
+            },
+            {
+                "feedID":24,
+                "color":"c67605",
+                "type":"Helligkeit",
+                "symbol":""
+            },
+            {
+                "feedID":23,
+                "color":"468847",
+                "type":"Bewegung",
+                "symbol":""
+            }
+            ]
+        },
+        "Wohnzimmer": {
+            "position":{
+                "left": 120,
+                "top": 240
+            },
+            "feeds":[
+            {
+                "feedID":30,
+                "color":"b94a48",
+                "type":"Temperatur",
+                "symbol":"°C"
+            },
+            {
+                "feedID":18,
+                "color":"c67605",
+                "type":"Helligkeit",
+                "symbol":""
+            }
+            ]
+        },
+        "Werkstatt": {
+            "position":{
+                "left": 580,
+                "top": 100
+            },
+            "feeds":[
+            {
+                "feedID":7,
+                "color":"b94a48",
+                "type":"Temperatur",
+                "symbol":"°C"
+            }
+            ]
+        },
+        "Außen": {
+            "position":{
+                "left": 570,
+                "top": 260
+            },
+            "feeds":[
+            {
+                "feedID":2,
+                "color":"b94a48",
+                "type":"Temperatur",
+                "symbol":"°C"
+            }
+            ]
+        },
+        "Serverraum": {
+            "position":{
+                "left": 390,
+                "top": 30
+            },
+            "feeds":[
+            {
+                "feedID":3,
+                "color":"b94a48",
+                "type":"Temperatur",
+                "symbol":"°C"
+            },
+            {
+                "feedID":4,
+                "color":"b94a48",
+                "type":"Temperatur",
+                "symbol":"°C"
+            }
+            ]
+        },
+        "Schlafzimmer": {
+            "position":{
+                "left": 800,
+                "top": 160
+            },
+            "feeds":[
+            {
+                "feedID":6,
+                "color":"b94a48",
+                "type":"Temperatur",
+                "symbol":"°C"
+            }
+            ]
+        },
+        "Küche": {
+            "position":{
+                "left": 270,
+                "top": 50
+            },
+            "feeds":[
+            {
+                "feedID":16,
+                "color":"b94a48",
+                "type":"Temperatur",
+                "symbol":"°C"
+            },
+            {
+                "feedID":11,
+                "color":"3a87ad",
+                "type":"Luftfeuchtigkeit",
+                "symbol":"%"
+            },
+            {
+                "feedID":15,
+                "color":"c67605",
+                "type":"Helligkeit",
+                "symbol":""
+            },
+            {
+                "feedID":14,
+                "color":"468847",
+                "type":"Bewegung",
+                "symbol":""
+            }
+            ]
+        } 
+    }
+}
