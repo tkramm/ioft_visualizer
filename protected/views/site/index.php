@@ -10,7 +10,7 @@
                     <a href="" class="btn btn-success btn" style="opacity:<?php echo ($feed['response']->activity)/42+0.3; ?>;">
                     <?php 
                         $activity = $feed['response']->activity;
-                        echo floor($feed['response']->activity*100/30);
+                        echo floor(30-$feed['response']->activity);
                     ?>
                     </a>
                 <br />

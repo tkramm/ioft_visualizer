@@ -33,11 +33,29 @@
         "Sicherungskasten": {
             "position":{
                 "left": 360,
-                "top": 130
+                "top": 110
             },
             "feeds":[
             {
+                "feedID":37,
+                "color":"333333",
+                "type":"Leistung",
+                "symbol":"W"
+            },
+            {
                 "feedID":34,
+                "color":"333333",
+                "type":"Leistung",
+                "symbol":"W"
+            },
+            {
+                "feedID":35,
+                "color":"333333",
+                "type":"Leistung",
+                "symbol":"W"
+            },
+            {
+                "feedID":36,
                 "color":"333333",
                 "type":"Leistung",
                 "symbol":"W"
