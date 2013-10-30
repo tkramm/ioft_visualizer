@@ -39,13 +39,15 @@ class SiteController extends Controller
             foreach($config->sources as $sIndex => $source){
                 foreach ($source->feeds as $index => $feed){
                     $types[$feed->type] = 1;
+                    if($feed->type == "Bewegung") $model = 'activity';
+                    else $model = 'feed';
                     $data[$sIndex]['top'] = $source->position->top;
                     $data[$sIndex]['left'] = $source->position->left;
                     $data[$sIndex]['feeds'][] = array(
                         'type'=>$feed->type,
                         'symbol'=>$feed->symbol,
                         'color'=>$feed->color,
-                        'response'=>json_decode($this->makeUrlCall($feed->feedID)),
+                        'response'=>json_decode($this->makeUrlCall($feed->feedID,$model)),
                     );
                 }
             }
@@ -66,8 +68,8 @@ class SiteController extends Controller
 	    }
 	}
         
-        private function makeUrlCall($feed){
-            $url = "http://ioft.de/api/feed/".$feed;
+        private function makeUrlCall($feed,$model='feed'){
+            $url = "http://ioft.de/api/".$model."/".$feed;
             //Yii::log('', CLogger::LEVEL_ERROR, 'Calling: ' . $url);
             $result = file_get_contents($url);
             //Yii::log('', CLogger::LEVEL_ERROR, $result);

@@ -83,15 +83,15 @@
                 "symbol":"°C"
             },
             {
-                "feedID":8,
-                "color":"468847",
-                "type":"Bewegung",
-                "symbol":""
-            },
-            {
                 "feedID":13,
                 "color":"c67605",
                 "type":"Helligkeit",
+                "symbol":""
+            },
+            {
+                "feedID":8,
+                "color":"468847",
+                "type":"Bewegung",
                 "symbol":""
             }
             ]
