@@ -1,31 +1,10 @@
 <?php $this->pageTitle=Yii::app()->name; ?>
 
 <div style="position: relative;height:100%;text-align: center; margin-bottom: 10px;">
-    <?php echo CHtml::image('images/channels/1.png','',array('style'=>'width:1200px;')); ?>
-    <?php foreach($data as $sourceName => $source): ?>
-        <div style="position: absolute;top:<?php echo $source['top']; ?>px; left:<?php echo $source['left']; ?>px;">
-        <?php foreach($source['feeds'] as $feed): ?>
-            <span class='<?php echo $feed['type']; ?>'>
-                <?php if($feed['type'] == "Bewegung"){ ?>
-                    <a href="" class="btn btn-success btn" style="opacity:<?php echo ($feed['response']->activity)/42+0.3; ?>;">
-                    <?php 
-                        $activity = $feed['response']->activity;
-                        echo floor(30-$feed['response']->activity);
-                    ?>
-                    </a>
-                <br />
-                <?php } else { ?>
-                <span class="badge" style="background-color:#<?php echo $feed['color']; ?>;">
-                    <?php 
-                    echo $feed['response']->lastValue;
-                    echo $feed['symbol'];
-                    ?>
-                </span><br />
-                <?php } ?>
-            </span>
-        <?php endforeach; ?>    
-        </div>
-    <?php endforeach; ?>    
+    <?php echo CHtml::image('images/channels/'.$config->image,'',array('style'=>'width:1200px;')); ?>
+    <div id="data">
+        <?php $this->renderPartial('_data',array('data'=>$data)); ?>
+    </div>
 </div>
 <div class="well">
     <form class='form-inline'>
@@ -37,7 +16,29 @@
     </form>
 </div>
 
-<script>
+<script type="text/javascript">
+function update(id){
+    jQuery.ajax({
+        'type':'POST',
+        'data':{
+            <?php foreach($types as $type => $present): ?>
+                '<?php echo $type; ?>':$('#<?php echo $type; ?>').is(':checked'),
+            <?php endforeach; ?>
+            'name':'<?php echo $name; ?>'
+        },
+        'url':'<?php echo CHtml::normalizeUrl(array('/site/GetValues')); ?>',
+        'cache':false,
+        'success':function(html){jQuery("#data").html(html)}});
+};
+var checkUpdates = function()
+{
+    serverPoll = setInterval( function()
+    {
+        update()
+    }, 60000 )
+};
+$( document ).ready( checkUpdates );
+<!--
 <?php foreach($types as $type => $present): ?>
     $('#<?php echo $type; ?>').click(
       function(){
@@ -48,4 +49,6 @@
       }
     );    
 <?php endforeach; ?>
+-->
+
 </script>

@@ -2,6 +2,7 @@
     "name": "Level 2",
     "channelId": 1,
     "baseUrl": "http://www.ioft.d/api/",
+    "image": "1.png",
     "sources":
         {
         "Bad": {

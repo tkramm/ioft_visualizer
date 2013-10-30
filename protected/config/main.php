@@ -65,5 +65,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'tkramm@datensucht.de',
+		'defaultConfig'=>'level2',
 	),
 );

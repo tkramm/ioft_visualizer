@@ -28,7 +28,7 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
             $configFile = Yii::app()->getRequest()->getParam('configFile');
-            if(empty($configFile)) $configFile = "level2";
+            if(empty($configFile)) $configFile = Yii::app()->params['defaultConfig'];
             $myfile = Yii::app()->file->set('./protected/data/'.$configFile.'.json', true);
             $config = json_decode($myfile->contents);
 //            echo "<pre>";
@@ -51,8 +51,33 @@ class SiteController extends Controller
                     );
                 }
             }
-            $this->render('index',array('data'=>$data,'types'=>$types));
+            $this->render('index',array('name'=>$configFile,'config'=>$config,'data'=>$data,'types'=>$types));
 	}
+        
+	public function actionGetValues()
+	{
+            $configFile = Yii::app()->getRequest()->getParam('name');
+            $myfile = Yii::app()->file->set('./protected/data/'.$configFile.'.json', true);
+            $config = json_decode($myfile->contents);
+            $data = array();
+            $types = array();
+            foreach($config->sources as $sIndex => $source){
+                foreach ($source->feeds as $index => $feed){
+                    $types[$feed->type] = 1;
+                    if($feed->type == "Bewegung") $model = 'activity';
+                    else $model = 'feed';
+                    $data[$sIndex]['top'] = $source->position->top;
+                    $data[$sIndex]['left'] = $source->position->left;
+                    $data[$sIndex]['feeds'][] = array(
+                        'type'=>$feed->type,
+                        'symbol'=>$feed->symbol,
+                        'color'=>$feed->color,
+                        'response'=>json_decode($this->makeUrlCall($feed->feedID,$model)),
+                    );
+                }
+            }
+            $this->renderPartial('_data',array('data'=>$data,'visible'=>$_POST));
+	}        
 
 	/**
 	 * This is the action to handle external exceptions.
